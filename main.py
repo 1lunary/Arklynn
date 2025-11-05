@@ -156,5 +156,3 @@ async def admin(ctx):
     view = PermissionMenu(ctx.author, roles, categories)
     await ctx.send("Admin panel loaded.", view=view)
 
-
-bot.run("MTA5OTIxMTQzNjkyNTkzMTU0MQ.GxYLcN.vi-wg_OT0Tj0752c_LfhEZxs5Ce34NufELFBzI")
