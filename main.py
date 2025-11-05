@@ -1,6 +1,7 @@
 import nextcord
 from nextcord.ext import commands
 from nextcord import Interaction, ui
+import os   # importante para ler variáveis
 
 intents = nextcord.Intents.all()
 bot = commands.Bot(command_prefix="!", intents=intents)
@@ -156,3 +157,11 @@ async def admin(ctx):
     view = PermissionMenu(ctx.author, roles, categories)
     await ctx.send("Admin panel loaded.", view=view)
 
+
+# TOKEN VIA VARIÁVEL DE AMBIENTE
+TOKEN = os.getenv("DISCORD_TOKEN")
+
+if TOKEN is None:
+    raise ValueError("❌ ERRO: Variável DISCORD_TOKEN não encontrada no Render!")
+
+bot.run(TOKEN)
